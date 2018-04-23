@@ -1,0 +1,44 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath "com.jakewharton:butterknife-gradle-plugin:8.4.0"
+        
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+ext {
+    // App dependencies
+    gsonVersion = '2.8.2'
+    okhttpVersion = '3.9.0'
+    retrofitVersion = '2.3.0'
+    glideVersion = '4.0.0'
+    fragmentationVersion = '1.1.9'
+    rxjavaVersion = '2.1.5'
+    rxandroidVersion = '2.0.1'
+    rxbindingVersion = '2.1.0'
+    rxpermissionsVersion = '0.9.5@aar'
+    daggerVersion = '2.0.2'
+    javaxVersion = '10.0-b28'
+    butterknifeVersion = '8.4.0'
+}
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
