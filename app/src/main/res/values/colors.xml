@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    //relative to night
+    <color name="colorPrimary">#00abff</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="textColorPrimary">#2c2c2c</color>
+
+    <color name="drawer_item_bg_p">#e8e8e8</color>
+    <color name="drawer_item_bg_n">#fffff9</color>
+    <color name="delete_text">#cccccc</color>
+    <color name="colorCard">#FFFFFF</color>
+    <color name="blue">#3F9FE0</color>
+    <color name="white">#ffffff</color>
+
 </resources>

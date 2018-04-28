@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/bottom_nav_main"
+        android:title="@string/main"
+        android:icon="@drawable/icon_home_pager_not_selected"
+        />
+    <item android:id="@+id/bottom_nav_knowledge_architecture"
+        android:title="@string/knowledge_architecture"
+        android:icon="@drawable/icon_knowledge_hierarchy_not_selected"
+        />
+    <item android:id="@+id/bottom_nav_navigation"
+        android:title="@string/navigation"
+        android:icon="@drawable/icon_navigation_not_selected"
+        />
+    <item android:id="@+id/bottom_nav_project"
+        android:title="@string/project"
+        android:icon="@drawable/icon_project_not_selected"
+        />
+</menu>
