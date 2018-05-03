@@ -87,15 +87,19 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
             switch (item.getItemId()){
                 case R.id.bottom_nav_main:
                     replaceFragment(mMainPagerFragment);
+                    mTitle.setText(R.string.main);
                     break;
                 case R.id.bottom_nav_knowledge_architecture:
                     replaceFragment(mKnowledgeArchitectureFragment);
+                    mTitle.setText(R.string.knowledge_architecture);
                     break;
                 case R.id.bottom_nav_navigation:
                     replaceFragment(mNavigationFragment);
+                    mTitle.setText(R.string.navigation);
                     break;
                 case R.id.bottom_nav_project:
                     replaceFragment(mProjectFragment);
+                    mTitle.setText(R.string.project);
                     break;
             }
             return true;

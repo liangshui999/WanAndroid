@@ -29,9 +29,7 @@ import dagger.android.ContributesAndroidInjector;
 @Module
 public abstract class MainActivityModule {
 
-  @ActivityScope
-  @Binds
-  abstract MainContract.Presenter providePresenter(MainPresenter mainPresenter);
+
 
   @ActivityScope
   @Binds

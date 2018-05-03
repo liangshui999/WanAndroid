@@ -3,6 +3,7 @@ package com.example.asus_cp.wanandroid.di.component;
 import android.app.Application;
 
 import com.example.asus_cp.wanandroid.app.APP;
+import com.example.asus_cp.wanandroid.base.adapter.BaseAdapter;
 import com.example.asus_cp.wanandroid.di.module.ActivityBindingModule;
 import com.example.asus_cp.wanandroid.di.module.ApplicationModule;
 import com.example.asus_cp.wanandroid.di.module.GlobleModule;
@@ -34,4 +35,6 @@ public interface AppComponent extends AndroidInjector<APP>{
 
         AppComponent build();
     }
+
+
 }

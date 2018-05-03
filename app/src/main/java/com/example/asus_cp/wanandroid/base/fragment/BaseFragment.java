@@ -24,7 +24,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends BaseInjectFr
     private ViewGroup parent;
 
     @Inject
-    P presenter;
+    protected P presenter;
 
     @Nullable
     @Override
