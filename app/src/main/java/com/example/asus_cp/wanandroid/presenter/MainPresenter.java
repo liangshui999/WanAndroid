@@ -12,4 +12,8 @@ public class MainPresenter extends AbstractPresenter<MainContract.View> implemen
 
     }
 
+    @Override
+    public void destroy() {
+
+    }
 }

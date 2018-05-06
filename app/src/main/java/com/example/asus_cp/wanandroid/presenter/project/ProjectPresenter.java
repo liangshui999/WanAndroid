@@ -11,4 +11,9 @@ public class ProjectPresenter extends AbstractPresenter<ProjectContract.View>
     @Inject
     public ProjectPresenter() {
     }
+
+    @Override
+    public void destroy() {
+
+    }
 }

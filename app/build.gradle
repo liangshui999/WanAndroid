@@ -63,5 +63,8 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
 
+    //上拉加载和下拉刷新
+    compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.3'
+
 
 }

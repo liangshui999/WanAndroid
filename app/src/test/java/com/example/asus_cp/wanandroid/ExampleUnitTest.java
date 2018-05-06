@@ -4,6 +4,12 @@ import com.example.asus_cp.wanandroid.bean.main.MainPagerListBean;
 import com.google.gson.Gson;
 
 import org.junit.Test;
+import org.reactivestreams.Subscription;
+
+import io.reactivex.Observable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 import static org.junit.Assert.*;
 
@@ -26,5 +32,22 @@ public class ExampleUnitTest {
         MainPagerListBean bean = gson.fromJson(s, MainPagerListBean.class);
 
         System.out.println(bean);
+    }
+
+    @Test
+    public void test3() throws InterruptedException {
+        Disposable disposable = Observable
+                .fromArray(1, 2)
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer i) throws Exception {
+                Thread.sleep(3000);
+                System.out.println(i);
+            }
+        });
+        Thread.sleep(4000);
+        disposable.dispose();
+        Thread.sleep(10000);
     }
 }

@@ -10,10 +10,13 @@ import android.view.ViewGroup;
 import com.example.asus_cp.wanandroid.R;
 import com.example.asus_cp.wanandroid.base.presenter.BasePresenter;
 import com.example.asus_cp.wanandroid.base.view.BaseView;
+import com.example.asus_cp.wanandroid.util.MyLog;
 
 import javax.inject.Inject;
 
 public abstract class BaseFragment<P extends BasePresenter> extends BaseInjectFragment implements BaseView{
+
+    protected String TAG = this.getClass().getSimpleName();
 
     private ViewGroup normal;
 
@@ -29,17 +32,17 @@ public abstract class BaseFragment<P extends BasePresenter> extends BaseInjectFr
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        normal = (ViewGroup) super.onCreateView(inflater, container, savedInstanceState);
+        ViewGroup viewGroup = (ViewGroup) super.onCreateView(inflater, container, savedInstanceState);
         loading = (ViewGroup) inflater.inflate(R.layout.loading, container, false);
         error = (ViewGroup) inflater.inflate(R.layout.error, container, false);
-        parent = (ViewGroup) normal.findViewById(R.id.container);
+        parent = viewGroup.findViewById(R.id.container);
+        normal = viewGroup.findViewById(R.id.normal);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         parent.addView(loading, layoutParams);
         parent.addView(error, layoutParams);
         showNormal();
-        //showLoading();
         presenter.attachView(this);
-        return normal;
+        return viewGroup;
     }
 
     @Override
@@ -50,6 +53,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends BaseInjectFr
 
     @Override
     public void showNormal() {
+        MyLog.d(TAG, "showNormal.........");
         normal.setVisibility(View.VISIBLE);
         loading.setVisibility(View.GONE);
         error.setVisibility(View.GONE);
@@ -57,6 +61,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends BaseInjectFr
 
     @Override
     public void showLoading() {
+        MyLog.d(TAG, "showLoading.........");
         loading.setVisibility(View.VISIBLE);
         normal.setVisibility(View.GONE);
         error.setVisibility(View.GONE);
@@ -64,6 +69,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends BaseInjectFr
 
     @Override
     public void showError() {
+        MyLog.d(TAG, "showError..........");
         error.setVisibility(View.VISIBLE);
         loading.setVisibility(View.GONE);
         normal.setVisibility(View.GONE);

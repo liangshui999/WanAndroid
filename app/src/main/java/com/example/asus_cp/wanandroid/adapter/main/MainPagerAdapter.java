@@ -197,7 +197,7 @@ public class MainPagerAdapter extends BaseAdapter<MainPagerAdapter.ViewHolder, M
 
                     @Override
                     public void onNext(Long aLong) {
-                        MyLog.d(TAG, "accept............");
+                        //MyLog.d(TAG, "accept............");
                         assert holder.viewPager != null;
                         holder.viewPager.setCurrentItem(position);
                         changeIndicate(position, holder);
@@ -224,6 +224,9 @@ public class MainPagerAdapter extends BaseAdapter<MainPagerAdapter.ViewHolder, M
      * 停止定时任务
      */
     private void stopTimer(){
+        if(disposable == null){
+            return;
+        }
         if(! disposable.isDisposed()){
             disposable.dispose();
         }

@@ -11,4 +11,9 @@ public class KnowledgeArchitecturePresenter extends AbstractPresenter<KnowledgeA
     @Inject
     public KnowledgeArchitecturePresenter() {
     }
+
+    @Override
+    public void destroy() {
+
+    }
 }

@@ -11,4 +11,9 @@ public class NavigationPresenter extends AbstractPresenter<NavigationContract.Vi
     @Inject
     public NavigationPresenter() {
     }
+
+    @Override
+    public void destroy() {
+
+    }
 }

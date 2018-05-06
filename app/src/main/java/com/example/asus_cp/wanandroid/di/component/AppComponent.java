@@ -7,6 +7,7 @@ import com.example.asus_cp.wanandroid.base.adapter.BaseAdapter;
 import com.example.asus_cp.wanandroid.di.module.ActivityBindingModule;
 import com.example.asus_cp.wanandroid.di.module.ApplicationModule;
 import com.example.asus_cp.wanandroid.di.module.GlobleModule;
+import com.example.asus_cp.wanandroid.net.http.datamanager.BaseDataManager;
 
 import javax.inject.Singleton;
 
@@ -35,6 +36,8 @@ public interface AppComponent extends AndroidInjector<APP>{
 
         AppComponent build();
     }
+
+    void inject(BaseDataManager dataManager);
 
 
 }

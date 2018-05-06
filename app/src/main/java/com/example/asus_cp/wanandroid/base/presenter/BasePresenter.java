@@ -18,4 +18,9 @@ public interface BasePresenter<V extends BaseView> {
      */
     void dettachView();
 
+    /**
+     * 销毁资源
+     */
+    void destroy();
+
 }
