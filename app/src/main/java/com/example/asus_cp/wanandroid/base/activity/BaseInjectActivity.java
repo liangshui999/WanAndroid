@@ -24,6 +24,8 @@ import dagger.android.support.DaggerAppCompatActivity;
  */
 public abstract class BaseInjectActivity extends DaggerAppCompatActivity {
 
+    protected String TAG = getClass().getSimpleName();
+
     private Unbinder unbinder;
 
 

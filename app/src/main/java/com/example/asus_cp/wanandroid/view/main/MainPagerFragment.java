@@ -1,5 +1,6 @@
 package com.example.asus_cp.wanandroid.view.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,11 +16,13 @@ import com.example.asus_cp.wanandroid.adapter.main.MainPagerAdapter;
 import com.example.asus_cp.wanandroid.base.fragment.BaseFragment;
 import com.example.asus_cp.wanandroid.bean.main.MainPagerBannerBean;
 import com.example.asus_cp.wanandroid.bean.main.MainPagerListBean;
+import com.example.asus_cp.wanandroid.constant.IntentConstant;
 import com.example.asus_cp.wanandroid.constant.LoadDataMode;
 import com.example.asus_cp.wanandroid.contract.main.MainPagerContract;
 import com.example.asus_cp.wanandroid.itemDeraction.MyItemDecoration;
 import com.example.asus_cp.wanandroid.util.MyLog;
 import com.example.asus_cp.wanandroid.util.ViewUtil;
+import com.example.asus_cp.wanandroid.view.DetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,6 +92,13 @@ public class MainPagerFragment extends BaseFragment<MainPagerContract.Presenter>
                    }
                }
            }
+       });
+
+       //设置小项的点击事件
+       adapter.setOnItemClickListener((view, position)->{
+           Intent intent = new Intent(MainPagerFragment.this.getActivity(), DetailActivity.class);
+           intent.putExtra(IntentConstant.KEY_TO_DETAIL_ACTIVITY_URL, listDatas.get(position).getLink());
+           startActivity(intent);
        });
     }
 

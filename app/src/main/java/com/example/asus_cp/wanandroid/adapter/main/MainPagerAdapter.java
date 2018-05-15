@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
@@ -17,6 +18,7 @@ import com.example.asus_cp.wanandroid.R;
 import com.example.asus_cp.wanandroid.base.adapter.BaseAdapter;
 import com.example.asus_cp.wanandroid.bean.main.MainPagerBannerBean;
 import com.example.asus_cp.wanandroid.bean.main.MainPagerListBean;
+import com.example.asus_cp.wanandroid.callback.OnItemClickListener;
 import com.example.asus_cp.wanandroid.util.DensityUtils;
 import com.example.asus_cp.wanandroid.util.MyLog;
 
@@ -27,6 +29,7 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dagger.BindsInstance;
 import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
@@ -51,6 +54,8 @@ public class MainPagerAdapter extends BaseAdapter<MainPagerAdapter.ViewHolder, M
     private int position = 0;
 
     private List<MainPagerBannerBean.DataBean> banners;
+
+    private OnItemClickListener onItemClickListener;
 
     public MainPagerAdapter(List<MainPagerListBean.DataBean.DatasBean> datas, List<MainPagerBannerBean.DataBean> banners) {
         super(datas);
@@ -84,10 +89,16 @@ public class MainPagerAdapter extends BaseAdapter<MainPagerAdapter.ViewHolder, M
                 assert holder.textCategory != null;
                 assert holder.textTitle != null;
                 assert holder.textTime != null;
+                assert holder.constraintLayout != null;
                 holder.textAuthor.setText(data.getAuthor());
                 holder.textCategory.setText(data.getChapterName());
                 holder.textTitle.setText(data.getTitle());
                 holder.textTime.setText(data.getNiceDate());
+                holder.constraintLayout.setOnClickListener((v)->{
+                    if(onItemClickListener != null){
+                        onItemClickListener.onItemClick(v, position);
+                    }
+                });
                 break;
             case VIEW_TYPE_BANNER:
                 if(! first){
@@ -255,8 +266,18 @@ public class MainPagerAdapter extends BaseAdapter<MainPagerAdapter.ViewHolder, M
     }
 
 
+    /**
+     * 设置onItemClickListener
+     */
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
 
     static class ViewHolder extends BaseAdapter.BaseViewHolder{
+
+        @Nullable
+        @BindView(R.id.item_container)
+        ConstraintLayout constraintLayout;
 
         @Nullable
         @BindView(R.id.img_head)

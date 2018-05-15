@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.asus_cp.wanandroid.R;
 import com.example.asus_cp.wanandroid.base.presenter.BasePresenter;
 import com.example.asus_cp.wanandroid.base.view.BaseView;
+import com.example.asus_cp.wanandroid.util.MyLog;
 
 import javax.inject.Inject;
 
@@ -69,5 +71,13 @@ public abstract class BaseActivity<P extends BasePresenter> extends BaseInjectAc
         error.setVisibility(View.VISIBLE);
         loading.setVisibility(View.GONE);
         normal.setVisibility(View.GONE);
+    }
+
+    protected void log(String msg){
+        MyLog.d(TAG, msg);
+    }
+
+    protected void toast(String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 }
