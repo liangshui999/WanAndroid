@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.Window;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -23,6 +24,9 @@ import com.example.asus_cp.wanandroid.util.MyLog;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * 使用Webview来展示网页内容
+ */
 public class DetailActivity extends BaseActivity<DetailContract.Presenter> implements DetailContract.View {
 
 
@@ -84,6 +88,12 @@ public class DetailActivity extends BaseActivity<DetailContract.Presenter> imple
             @Override
             public void onPageFinished(WebView view, String url) {
                 showNormal();
+            }
+
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                showError();
+                log("onReceivedError.........");
             }
         });
 

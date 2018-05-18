@@ -43,6 +43,16 @@ public abstract class BaseAdapter<VH extends RecyclerView.ViewHolder, T> extends
     }
 
 
+    /**
+     * 刷新数据
+     */
+    public void refreshDatas(List<T> dataList){
+        datas.clear();
+        datas.addAll(dataList);
+        notifyDataSetChanged();
+    }
+
+
     public static class BaseViewHolder extends RecyclerView.ViewHolder{
         public BaseViewHolder(View itemView) {
             super(itemView);

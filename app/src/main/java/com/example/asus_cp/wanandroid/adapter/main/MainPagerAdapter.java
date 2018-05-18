@@ -273,35 +273,35 @@ public class MainPagerAdapter extends BaseAdapter<MainPagerAdapter.ViewHolder, M
         this.onItemClickListener = onItemClickListener;
     }
 
-    static class ViewHolder extends BaseAdapter.BaseViewHolder{
+    public static class ViewHolder extends BaseAdapter.BaseViewHolder{
 
         @Nullable
         @BindView(R.id.item_container)
-        ConstraintLayout constraintLayout;
+        public ConstraintLayout constraintLayout;
 
         @Nullable
         @BindView(R.id.img_head)
-        ImageView imgHead;
+        public ImageView imgHead;
 
         @Nullable
         @BindView(R.id.text_author)
-        TextView textAuthor;
+        public TextView textAuthor;
 
         @Nullable
         @BindView(R.id.text_category)
-        TextView textCategory;
+        public TextView textCategory;
 
         @Nullable
         @BindView(R.id.text_title)
-        TextView textTitle;
+        public TextView textTitle;
 
         @Nullable
         @BindView(R.id.img_collect)
-        ImageView imgCollect;
+        public ImageView imgCollect;
 
         @Nullable
         @BindView(R.id.text_time)
-        TextView textTime;
+        public TextView textTime;
 
         @Nullable
         @BindView(R.id.viewpager)
@@ -311,7 +311,7 @@ public class MainPagerAdapter extends BaseAdapter<MainPagerAdapter.ViewHolder, M
         @BindView(R.id.ll_indicate)
         LinearLayout llIndicate;
 
-        ViewHolder(View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
         }
 

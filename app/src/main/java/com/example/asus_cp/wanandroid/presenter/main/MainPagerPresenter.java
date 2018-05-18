@@ -6,10 +6,12 @@ import com.example.asus_cp.wanandroid.bean.main.MainPagerListBean;
 import com.example.asus_cp.wanandroid.callback.OnGetHttpResultListener;
 import com.example.asus_cp.wanandroid.constant.LoadDataMode;
 import com.example.asus_cp.wanandroid.contract.main.MainPagerContract;
+import com.example.asus_cp.wanandroid.di.scope.ActivityScope;
 import com.example.asus_cp.wanandroid.net.http.datamanager.MainPagerDataManager;
 
 import javax.inject.Inject;
 
+@ActivityScope
 public class MainPagerPresenter extends AbstractPresenter<MainPagerContract.View> implements MainPagerContract.Presenter {
 
     @Inject

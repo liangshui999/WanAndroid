@@ -26,6 +26,10 @@
 
         <activity android:name=".view.DetailActivity"
                   android:theme="@style/AppTheme.NoActionBar"/>
+
+        <!--会使用application的样式-->
+        <activity android:name=".view.knowledge_architecture.KnowledgeArchitectureDetailActivity"/>
+
     </application>
 
 </manifest>

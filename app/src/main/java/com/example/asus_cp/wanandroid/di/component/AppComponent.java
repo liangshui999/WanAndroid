@@ -2,6 +2,7 @@ package com.example.asus_cp.wanandroid.di.component;
 
 import android.app.Application;
 
+import com.example.asus_cp.wanandroid.adapter.knowledge_architecture.KnowledgeArchitectureDetailPagerAdapter;
 import com.example.asus_cp.wanandroid.app.APP;
 import com.example.asus_cp.wanandroid.base.adapter.BaseAdapter;
 import com.example.asus_cp.wanandroid.di.module.ActivityBindingModule;
@@ -38,6 +39,8 @@ public interface AppComponent extends AndroidInjector<APP>{
     }
 
     void inject(BaseDataManager dataManager);
+
+    void inject(KnowledgeArchitectureDetailPagerAdapter adapter);
 
 
 }

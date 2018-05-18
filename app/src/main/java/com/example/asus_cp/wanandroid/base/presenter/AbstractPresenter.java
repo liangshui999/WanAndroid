@@ -5,6 +5,8 @@ import com.example.asus_cp.wanandroid.bean.main.MainPagerBannerBean;
 
 public abstract class AbstractPresenter<V extends BaseView> implements BasePresenter<V> {
 
+    protected String TAG = this.getClass().getSimpleName();
+
     protected V view;
 
     @Override

@@ -49,6 +49,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends BaseInjectFr
     public void onDestroy() {
         super.onDestroy();
         presenter.dettachView();
+        presenter.destroy();
     }
 
     @Override
