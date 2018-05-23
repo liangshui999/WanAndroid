@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.asus_cp.wanandroid.R;
 import com.example.asus_cp.wanandroid.base.presenter.BasePresenter;
@@ -74,5 +75,13 @@ public abstract class BaseFragment<P extends BasePresenter> extends BaseInjectFr
         error.setVisibility(View.VISIBLE);
         loading.setVisibility(View.GONE);
         normal.setVisibility(View.GONE);
+    }
+
+    protected void log(String msg){
+        MyLog.d(TAG, msg);
+    }
+
+    protected void toast(String msg){
+        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
     }
 }
