@@ -37,7 +37,7 @@
             android:layout_marginBottom="60dp"
             android:layout_marginRight="@dimen/fab_margin"
             app:srcCompat="@android:drawable/ic_dialog_email"
-            app:layout_behavior="@string/bye_burger_float_behavior"
+            app:layout_behavior="@string/my_fab_behavior"
             />
 
         <android.support.design.widget.BottomNavigationView

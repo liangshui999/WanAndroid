@@ -32,9 +32,9 @@ public class MyItemDecoration extends RecyclerView.ItemDecoration {
         for(int i = 0; i < count; i++){
             View v = parent.getChildAt(i);
             c.drawRect(0, v.getBottom(), v.getRight() + decorationSize,
-                    v.getBottom() + 2 * decorationSize, paint);
-            c.drawRect(0, v.getTop(), decorationSize, v.getBottom(), paint);
-            c.drawRect(v.getRight(), v.getTop(), v.getRight() + decorationSize, v.getBottom(), paint);
+                    v.getBottom() + decorationSize, paint);//画下边
+            c.drawRect(0, v.getTop() - decorationSize, decorationSize, v.getBottom(), paint);//画左边
+            c.drawRect(v.getRight(), v.getTop() - decorationSize, v.getRight() + decorationSize, v.getBottom(), paint);//画右边
         }
     }
 
@@ -46,6 +46,6 @@ public class MyItemDecoration extends RecyclerView.ItemDecoration {
      */
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-       outRect.set(decorationSize, decorationSize, decorationSize, 0);
+       outRect.set(decorationSize, decorationSize, decorationSize, decorationSize);
     }
 }

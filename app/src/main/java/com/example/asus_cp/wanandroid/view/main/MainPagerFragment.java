@@ -1,12 +1,15 @@
 package com.example.asus_cp.wanandroid.view.main;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -41,6 +44,8 @@ public class MainPagerFragment extends BaseFragment<MainPagerContract.Presenter>
     @BindView(R.id.swipe_target)
     RecyclerView recyclerView;
 
+    private RecyclerView.OnScrollListener onScrollListener;
+
     private MainPagerAdapter adapter;
 
     private List<MainPagerListBean.DataBean.DatasBean> listDatas;
@@ -55,6 +60,7 @@ public class MainPagerFragment extends BaseFragment<MainPagerContract.Presenter>
         return view;
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void init() {
         listDatas = new ArrayList<>();
         bannerDatas = new ArrayList<>();
@@ -82,17 +88,30 @@ public class MainPagerFragment extends BaseFragment<MainPagerContract.Presenter>
         });
 
         //滚动到底部之后自动加载
-       recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-           @Override
-           public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-               super.onScrollStateChanged(recyclerView, newState);
-               if(newState == SCROLL_STATE_IDLE){
+        onScrollListener = new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                log("onScrolled................dy = " + dy);
+                if(! ViewUtil.canChildScrollUp(recyclerView)){
+                    recyclerView.stopScroll();//该方法的调用起了关键作用
+                    swipeToLoadLayout.setLoadingMore(true);
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                log("onScrollStateChanged.................");
+               /*if(newState == SCROLL_STATE_IDLE){
                    if(! ViewUtil.canChildScrollUp(recyclerView)){
                        swipeToLoadLayout.setLoadingMore(true);
                    }
-               }
-           }
-       });
+               }*/
+            }
+        };
+       recyclerView.addOnScrollListener(onScrollListener);
+
 
        //设置小项的点击事件
        adapter.setOnItemClickListener((view, position)->{

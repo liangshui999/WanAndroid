@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="my_fab_behavior">com.example.asus_cp.wanandroid.behavior.MyFabBehavior</string>
+</resources>

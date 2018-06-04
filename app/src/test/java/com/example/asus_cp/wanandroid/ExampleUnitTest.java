@@ -2,6 +2,7 @@ package com.example.asus_cp.wanandroid;
 
 import com.example.asus_cp.wanandroid.bean.main.MainPagerListBean;
 import com.google.gson.Gson;
+import com.wingsofts.byeburgernavigationview.ByeBurgerFloatButtonBehavior;
 
 import org.junit.Test;
 import org.reactivestreams.Subscription;
@@ -49,5 +50,11 @@ public class ExampleUnitTest {
         Thread.sleep(4000);
         disposable.dispose();
         Thread.sleep(10000);
+    }
+
+    @Test
+    public void test4(){
+        int x = 1 << 1;
+        System.out.println("x = " + x);
     }
 }
